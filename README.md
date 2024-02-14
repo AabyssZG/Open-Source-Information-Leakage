@@ -4,6 +4,8 @@
 
 开源项目信息泄露笔记，博客地址：[https://blog.zgsec.cn/archives/205.html](https://blog.zgsec.cn/archives/205.html)
 
+**本笔记内容会持续更新，欢迎各位师傅点个Star支持和补充完善~🥰**
+
 ## 0# 概述与现状
 
 当我们对一些项目进行渗透、审计的时候，以及HW红蓝攻防时，对目标的开源项目信息泄露就是重要一环，这也是开源情报（Open-Source Intelligence，OSINT）信息搜集的一部分
