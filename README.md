@@ -352,11 +352,19 @@ m-n位的数字：^\d{m,n}$
 
 ## 4# 敏感信息泄露监控工具的推荐
 
-关于相关的工具，我这里推荐使用这三个，是我用过感觉蛮好的
+关于相关的工具，我这里推荐使用这四个，是我用过感觉蛮好的
 
-三个工具各有特点，可以依据使用者的条件和喜好自行选择
+四个工具各有特点，可以依据使用者的条件和喜好自行选择
 
 关于工具的搭建和配置，在百度和Google上很多文章都有写，笔者这里就不重复了
+
+### LeakLooker-X
+
+开源地址： [https://github.com/GhostWolfLab/LeakLooker-X](https://github.com/GhostWolfLab/LeakLooker-X) 
+
+LeakLooker是一款用于在公网寻找未授权访问数据库的软件，可以帮你在公网找到对任何人都开放的MongoDB、CouchDB和ElasticSearch数据库，这其中也包括Kibana。
+
+LeakLooker主要是解析来自国外资产测绘引擎Shodan的搜索结果，进行OSINT开源情报信息搜集。
 
 ### GitMAD
 
