@@ -1,8 +1,8 @@
+![Open-Source-Information-Leakage](https://socialify.git.ci/AabyssZG/Open-Source-Information-Leakage/image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Signal&stargazers=1&theme=Dark)
+
 # Open-Source-Information-Leakage
 
 开源项目信息泄露笔记，博客地址：[https://blog.zgsec.cn/archives/205.html](https://blog.zgsec.cn/archives/205.html)
-
-![开源项目信息泄露-title.png](./img/开源项目信息泄露-title.png)
 
 ## 0# 概述与现状
 
