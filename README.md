@@ -131,9 +131,7 @@ site:xxx.com inurl:"/admin/login.php"
 filetype:xls "username | password"
 ```
 
-**这里补充一个谷歌黑客语法模板，仅需输入域名即可，很方便，来自于[`@及辞`](https://github.com/Jici-Zeroten)师傅**
-
-[谷歌黑客语法模板 (jici-zeroten.github.io)](https://jici-zeroten.github.io/Hacker-Grammar-Templates/)
+**这里补充一个谷歌黑客语法模板，仅需输入域名即可，来自于 [`@及辞`](https://github.com/Jici-Zeroten) 师傅的文章 [《谷歌黑客语法模板》](https://jici-zeroten.github.io/Hacker-Grammar-Templates/)**
 
 ## 2# Github高级搜索
 
@@ -353,13 +351,15 @@ m-n位的数字：^\d{m,n}$
 14.文件扩展名效验:^([a-zA-Z]\: |\\)\\([^\\]+\\)* [ ^ \/: * ?"<>|]+\.txt(l)?$
 ```
 
-关于正则补充一个开发脚本时比较好用的正则插件，感谢[`@及辞`](https://github.com/Jici-Zeroten)师傅补充，如下
+#### 5.常用正则大全
 
-vscode应用商店中搜索"**any-rule**"，其他IDE也有
+关于正则补充一个开发脚本时比较好用的正则插件，感谢 [`@及辞`](https://github.com/Jici-Zeroten) 师傅补充，如下：
 
-Github网址[any86/any-rule: 🦕 常用正则大全, 支持web / vscode / idea / Alfred Workflow多平台 (github.com)](https://github.com/any86/any-rule)
+Cscode应用商店中搜索"**any-rule**"，其他IDE也有，在线版 [正则大全 (any-rule.vercel.app)](https://any-rule.vercel.app/)
 
-在线版：[正则大全 (any-rule.vercel.app)](https://any-rule.vercel.app/)
+Github：[any86/any-rule: 常用正则大全, 支持web / vscode / idea / Alfred Workflow多平台](https://github.com/any86/any-rule)
+
+
 
 ## 4# 敏感信息泄露监控工具的推荐
 
