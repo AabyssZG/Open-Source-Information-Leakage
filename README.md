@@ -45,7 +45,7 @@
 
 ## 1# Google搜索语法
 
-### 简单的一些Google语法
+### 1.1 简单的一些Google语法
 
 ```
 site      #指定域名进行搜索，如site:aabyss.cn（收集团队子域名）
@@ -56,7 +56,7 @@ inurl     #URL存在关键字的网页，如inurl:file（查找url上含file的�
 filetype  #搜索指定文件类型，如filetype:php（查找php类型主页）
 ```
 
-### 邮件配置信息泄露
+### 1.2 邮件配置信息泄露
 
 很多网站及系统都会使用POP3和SMTP发送来邮件，不少开发者由于安全意识不足会把相关的配置信息也放到Github上。
 
@@ -74,7 +74,7 @@ site:Github.com String password smtp
 
 ![SMTP泄露.png](./img/SMTP泄露.png)
 
-### 数据库信息泄露
+### 1.3 数据库信息泄露
 
 ```
 site:Github.com sa password              #针对SQLServer的信息泄露
@@ -82,7 +82,7 @@ site:Github.com root password            #针对MySQL的信息泄露
 site:Github.com User ID='sa';Password    #针对SQLServer的信息泄露
 ```
 
-### Github之svn信息泄露
+### 1.4 Github之SVN信息泄露
 
 ```
 site:Github.com svn
@@ -91,13 +91,13 @@ site:Github.com svn password
 site:Github.com svn username password
 ```
 
-### 数据库备份文件
+### 1.5 数据库备份文件
 
 ```
 site:Github.cominurl:sql
 ```
 
-### 综合信息泄露
+### 1.6 综合信息泄露
 
 ```
 site:Github.com password
@@ -106,7 +106,7 @@ site:Github.com 密码
 site:Github.com 内部
 ```
 
-### 配合用法
+### 1.7 配合用法
 
 ```
 1、找管理后台地址
@@ -143,7 +143,7 @@ filetype:xls "username | password"
 
 我们可以活用 GitHub 的高级搜索条件，可以避免很多不必要的干扰，这里就整理了一些：
 
-### 过滤时间
+### 2.1 过滤时间
 
 ```
 pushed:>2020-01-01 created:>2020-01-01
@@ -151,7 +151,7 @@ pushed:>2020-01-01 created:>2020-01-01
 
 使用过滤器过滤掉一些很老的代码
 
-### 筛选代码语言
+### 2.2 筛选代码语言
 
 ```
 language:java
@@ -159,7 +159,7 @@ language:java
 
 筛选特定语言（诸如Java）的代码，排除搜索结果中静态文件的干扰
 
-### 数据库连接关键词
+### 2.3 数据库连接关键词
 
 ```
 "jdbc:mysql://"
@@ -170,7 +170,7 @@ language:java
 
 ![数据库连接关键词.png](./img/数据库连接关键词.png)
 
-### 敏感文件名
+### 2.4 敏感文件名
 
 ```
 filename:.env
@@ -181,7 +181,7 @@ filename:jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin.xml
 
 这个总能找到一些奇奇怪怪的东西，甚至是数字证书（之前就找到国内某大学的VPN数字证书，然后就通过VPN进入内网）
 
-### 阿里云key
+### 2.5 阿里云key
 
 ```
 aliyuncs password
@@ -193,16 +193,46 @@ aliyuncs password
 
 思路其实可以放的很广
 
-### ChatGPT密钥
+### 2.6 ChatGPT密钥
 最近ChatGPT不是火遍海内外吗，很多师傅都想尝试一下
 同样，格局和思路要打开，通过Github高级语法同样能找到并白嫖ChatGPT密钥
  **（注：本文仅提供思路，请遵守当地法律进行使用）**
 
  ```
 /"sk-[a-zA-Z0-9]{20,50}"/
+"sk-" AND (openai OR gpt)
  ```
 
 ![ChatGPT密钥.png](./img/ChatGPT密钥.png)
+
+### 2.7 配合限定词
+
+使用Github的限定词，如 `path:`/`language:`/`user:`/`path:`/`org`/`repo:`，例如：
+
+```
+path:**/.npmrc _auth
+path:*/*config.sh password test.com NOT aabyss.cn
+path:*.pem private key
+path:src/*.js
+language:Python
+owner:octocat Aabyss-Team
+repo:repo owner name
+```
+
+比如配合限定词，查找QQ邮箱（qq.com）相关联的密码并排除无用信息：
+
+```
+path:*.env ( NOT homestead NOT root NOT example NOT gmail NOT sample NOT localhost NOT marutise) password qq.com
+```
+
+比如配合限定词，在指定文件后缀当中查找AccessKey密钥并找到敏感行：
+
+```
+(path:*.xml OR path:*.json OR path:*.properties OR path:*.txt OR path:*.log path:*.config OR path:*.conf OR path:*.cfg OR path:*.env OR path:*.envrc OR path:*.prod OR path:*.secret OR path:*.private OR path:*.key) AND (access_key OR secret_key OR access_token OR api_key OR apikey OR api_secret OR auth_token OR authsecret) AND ("AK")
+```
+
+这里可以搭配我的这篇文章使用：[云业务 AccessKey 标识特征整理](https://wiki.teamssix.com/CloudService/more/)
+
 
 ## 3# 正则表达式（部分内容来自互联网）
 
@@ -212,9 +242,9 @@ aliyuncs password
 
 **正则表达式使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串，通常被用来检索、替换那些符合某个模式（规则）的文本**
 
-### 正则表达式的规则
+### 3.1 正则表达式的规则
 
-#### 1.`[]`:表示一个字符,该字符可以是[]中指定的内容
+#### 3.1.1 `[]`:表示一个字符,该字符可以是[]中指定的内容
 
 ```less
 [abc]：这个字符可以是a或b或c
@@ -224,7 +254,7 @@ aliyuncs password
 [^abc]：该字符只要不是a或b或c
 ```
 
-#### 2.预定义字符
+#### 3.1.2 预定义字符
 
 ```less
 . :表示任意一个字符,没有范围限制
@@ -236,7 +266,7 @@ aliyuncs password
 \S:不是空白字符
 ```
 
-#### 3.量词
+#### 3.1.3 量词
 
 ```less
 ? :表示前面的内容出现0-1次
@@ -263,7 +293,7 @@ aliyuncs password
 但是不能匹配:aa 或 abbdaw…
 ```
 
-#### 4.()用于分组,是将括号内的内容看做是一个整体
+#### 3.1.4 ()用于分组,是将括号内的内容看做是一个整体
 
 ```less
 (abc){3} 表示abc整体出现3次. 可以匹配abcabcabc
@@ -274,13 +304,13 @@ aliyuncs password
 但是不能匹配abcdef 或abcdfbdef
 ```
 
-### 常用的正则表达式
+### 3.2 常用的正则表达式
 
-#### 1.邮箱演示：
+#### 3.2.1 邮箱正则匹配
 
 ![邮箱正则.png](./img/邮箱正则.png)
 
-#### 2.数字校验：
+#### 3.2.2 数字类正则匹配
 
 ```
 数字：^ [0-9]*$
@@ -304,7 +334,7 @@ m-n位的数字：^\d{m,n}$
 浮点数：^(-?\d+)(.\d+)?$ 或 ^-?([1-9]\d*.\d*|0.\d*[1-9]\d*|0?.0+|0)$
 ```
 
-#### 3.验证字符：
+#### 3.2.3 字符串正则匹配
 
 ```less
 汉字 ：^ [\u4e00-\u9fa5]{0,}$
@@ -319,7 +349,7 @@ m-n位的数字：^\d{m,n}$
 中文、英文、数字但不包括下划线等符号：^ [\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^ [\u4E00-\u9FA5A-Za-z0-9]{2,20}$
 ```
 
-#### 4.其他常用验证
+#### 3.2.4 其他常用正则匹配
 
 ```less
 1.域名：[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?
@@ -351,14 +381,29 @@ m-n位的数字：^\d{m,n}$
 14.文件扩展名效验:^([a-zA-Z]\: |\\)\\([^\\]+\\)* [ ^ \/: * ?"<>|]+\.txt(l)?$
 ```
 
-#### 5.常用正则大全
+### 3.3 正则配合限定词
+
+在 `2.7` 我们学习了Gaithub限定词，通过限定词配合正则表达式将会产生巨大威力
+
+查找指定域名下的密码泄露信息并排除无用信息：
+
+```
+/:password=[A-Za-z0–9-_]+/ NOT example NOT guest NOT localhost NOT fake NOT 1234 NOT xxx NOT 123456 NOT test aabyss.cn
+```
+
+查找敏感 `access_token` 信息泄露并排除无用信息：
+
+```
+/access_token=[A-Za-z0–9-_]+/ NOT example NOT guest NOT localhost NOT fake NOT 1234
+```
+
+### 3.4 常用正则大全
 
 关于正则补充一个开发脚本时比较好用的正则插件，感谢 [`@及辞`](https://github.com/Jici-Zeroten) 师傅补充，如下：
 
 Cscode应用商店中搜索"**any-rule**"，其他IDE也有，在线版 [正则大全 (any-rule.vercel.app)](https://any-rule.vercel.app/)
 
 Github：[any86/any-rule: 常用正则大全, 支持web / vscode / idea / Alfred Workflow多平台](https://github.com/any86/any-rule)
-
 
 
 ## 4# 敏感信息泄露监控工具的推荐
