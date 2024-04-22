@@ -10,7 +10,7 @@
 
 当我们对一些项目进行渗透、审计的时候，以及HW红蓝攻防时，对目标的开源项目信息泄露就是重要一环，这也是开源情报（Open-Source Intelligence，OSINT）信息搜集的一部分
 
-### 整体现状
+### 0.1 整体现状
 
 2020年春，Unit 42研究人员通过GitHub Event API 分析了超过24,000份GitHub公开数据，发现有数千个文件中可能包含敏感信息
 
@@ -28,13 +28,13 @@
 
 **以下两点来自 [`@E99p1ant`](https://github.com/wuhan005) 师傅的优质文章：[《简单地聊聊 GitHub 信息泄露监控》](https://github.red/github-data-leak-talking/)**
 
-### 对于企业而言
+### 0.2 对于企业而言
 
 很多企业的开源项目信息泄露，都是企业的实习生或新入职的员工造成的。他们往往会把自己里在公司负责的一个小项目给 push 到 GitHub 上，或者是将长久以来的技术总结文章发到 GitHub 上进行汇总管理，这些文章中难免包含很多公司的数据库配置，网络拓扑，服务器信息等（这种信息泄露在小公司尤为常见）
 
 虽然有部分公司选择使用 GitLab 等来自建 Git 远程仓库，但是同样未正确设置仓库权限为私有。导致在 `/explorer` 中可以看到所有的公开仓库，同时可以通过查看公开的 Groups 来得知有哪些用户，之后可以尝试爆破猜测它们的密码等等，可见自建 Git 仓库也并不是万全之计。
 
-### 对于个人开发者而言
+### 0.3 对于个人开发者而言
 
 除企业员工外，还有一群就是个人开发者（特别是高校学生），他们的开源项目信息泄露也尤为严重。很多高校学生，平时喜欢自己写些脚本。比如选课脚本、图书馆通知、刷课脚本等开源项目，往往未对相关的代码进行脱敏，就把源码 push 到 GitHub 上。
 
@@ -414,7 +414,7 @@ Github：[any86/any-rule: 常用正则大全, 支持web / vscode / idea / Alfred
 
 关于工具的搭建和配置，在百度和Google上很多文章都有写，笔者这里就不重复了
 
-### LeakLooker-X
+### 4.1 LeakLooker-X
 
 开源地址： [https://github.com/GhostWolfLab/LeakLooker-X](https://github.com/GhostWolfLab/LeakLooker-X) 
 
@@ -422,7 +422,7 @@ LeakLooker是一款用于在公网寻找未授权访问数据库的软件，可�
 
 LeakLooker主要是解析来自国外资产测绘引擎Shodan的搜索结果，进行OSINT开源情报信息搜集。
 
-### GitMAD
+### 4.2 GitMAD
 
 开源地址： [https://github.com/deepdivesec/gitmad](https://github.com/deepdivesec/gitmad) 
 
@@ -430,13 +430,13 @@ GitMAD是一个用于发现Github上的敏感信息和数据泄漏的工具。�
 
 然后，GitMAD会获取这些结果，并将它们插入到数据库中供后续的查看使用。这些结果也可作为邮件警报发送。另外，GitMAD将持续运行以发现与输入关键字匹配的新存储库。
 
-### GSIL
+### 4.3 GSIL
 
 开源地址： [https://github.com/FeeiCN/GSIL/](https://github.com/FeeiCN/GSIL/) 
 
 此工具主要用于GitHub敏感信息泄露的监控，可实现邮件实时告警，缺点不是可视化
 
-### GShark
+### 4.4 GShark
 
 开源地址： [https://github.com/madneal/gshark](https://github.com/madneal/gshark) 
 
