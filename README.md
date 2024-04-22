@@ -2,9 +2,7 @@
 
 # Open-Source-Information-Leakage
 
-开源项目信息泄露笔记，博客地址：[https://blog.zgsec.cn/archives/205.html](https://blog.zgsec.cn/archives/205.html)
-
-**本笔记内容会持续更新，欢迎各位师傅点个Star支持和补充完善~🥰**
+开源项目信息泄露笔记【内容会持续更新】，博客地址：[https://blog.zgsec.cn/archives/205.html](https://blog.zgsec.cn/archives/205.html)，欢迎各位师傅点个Star支持和补充完善~🥰
 
 **本笔记版本号：V1.3.1-2024/04/22**
 
