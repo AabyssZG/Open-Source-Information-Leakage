@@ -447,3 +447,13 @@ GitMAD是一个用于发现Github上的敏感信息和数据泄漏的工具。�
 - 灵活的规则以及过滤规则设置
 - 支持 gobuster 作为子域名爆破的支持
 - 方便易用
+
+## 5# 感谢各位师傅
+
+## Stargazers
+
+[![Stargazers repo roster for @AabyssZG/Open-Source-Information-Leakage](http://reporoster.com/stars/AabyssZG/Open-Source-Information-Leakage)](https://github.com/AabyssZG/Open-Source-Information-Leakage/stargazers)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=AabyssZG/Open-Source-Information-Leakage&type=Date)](https://star-history.com/#AabyssZG/Open-Source-Information-Leakage&Date)
